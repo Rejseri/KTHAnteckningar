@@ -1,0 +1,21 @@
+# Fdb version 4
+["pdflatex"] 1769706149.86109 "/home/yunshan/Documents/LatexTemplate/test/test.tex" "build/test.pdf" "test" 1769706149.96329 0
+  "/etc/texmf/web2c/texmf.cnf" 1769705417.09148 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/yunshan/Documents/LatexTemplate/test/test.tex" 1769706149.70915 115 45d1e01b6c79f40579273d1bd1e78340 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1705352648 20144 147463a6a579f4597269ef9565205cfe ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1705352648 8448 dbc0dbf4156c0bb9ba01a1c685d3bad0 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1704491087 30006 57b07afb710ee2f649c65cfbafda39c1 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1769705420.61375 75955 f78456fd1308dc295dc476a68e28d85b ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1769705425 6800793 cb3f7be724c94fb467a832aeb5b8ef57 ""
+  "build/test.aux" 1769706149.94315 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "test.tex" 1769706149.70915 115 45d1e01b6c79f40579273d1bd1e78340 ""
+  (generated)
+  "build/test.aux"
+  "build/test.log"
+  "build/test.pdf"
+  (rewritten before read)
