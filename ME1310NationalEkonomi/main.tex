@@ -25,6 +25,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{tikz}
 
 
 
@@ -568,12 +569,191 @@ Antagande om preferenser:
     \item Ofta kontinuerlig och deriverbar
 \end{itemize}
 
+\subsection*{Exempel på nyttofunktion}
+$$U(X) = ln(1+X)$$
+\begin{itemize}
+    \item $X$ är antal äpplen (varukorgen)
+    \item $U(X)$ är nyttofunktionen
+    \item Funktionen har avtagande marginalnytta
+\end{itemize}
 
+\newpage
+    
+\subsection*{Indifferenskurvor}
+\begin{itemize}
+    \item Indifferenskurvor visar olika kombinationer av varor som ger samma nytta
+    \item En konsument är indifferent mellan alla kombinationer av $x_1$ och $x_2$ som ger samma nytta
+    \item Kan skrivas som funktion $U(x_1, x_2)$
+\end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{indifferenskurva.png}
+    \caption{Illustration av indifferenskurvor}
+    \label{fig:placeholder}
+\end{figure}
 
+\newpage
+\subsection*{Exempel på indifferenskurva}
+\begin{itemize}
+    \item Konsumenten är indifferent mellan dessa kombinationer av äpplen och skor
+    \item Alla punkter på kurvan ger samma nytta
+    \item En indifferenskurva får ej vara ökande eftersom konsument alltid föredrar mer 
+    \item Kurvorna för inte heller korsa varandra p.g.a transitivitet
+\end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{exindifferenskurva.png}
+    \caption{Illustration av exempel på indifferenskurva}
+    \label{fig:placeholder}
+\end{figure}
 
+\subsection*{Vanliga Nyttofunktioner}
+\begin{itemize}
+    \item Cobb-Douglas: {\large $U(x_1, x_2) = x_1^{\alpha} \cdot x_2^{\beta}$}
+    \item Perfekta substitut: {\large $U(x_1, x_2) = \alpha x_1 + \beta x_2$}
+    \item Perfekta komplement: {\large $U(x_1, x_2) = min\{\alpha x_1, \beta x_2\}, \alpha, \beta > 0$}
+\end{itemize}
 
+\subsection*{Grafiska representationer av nyttofunktioner}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzpicture}[scale=0.8]
+            \draw[->] (0,0) -- (5,0) node[right] {$x_1$};
+            \draw[->] (0,0) -- (0,5) node[above] {$x_2$};
+            \draw[thick, smooth, domain=1:4.5] plot (\x, {min(4/\x, 4.8)});
+            \draw[thick, smooth, domain=1:4.5] plot (\x, {min(6/\x, 4.8)});
+            \draw[thick, smooth, domain=1:4.5] plot (\x, {min(8/\x, 4.8)});
+            \node at (2.5, 3) {$U_1$};
+            \node at (2.5, 2) {$U_2$};
+            \node at (2.5, 1.2) {$U_3$};
+        \end{tikzpicture}
+        \caption*{Cobb-Douglas}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzpicture}[scale=0.8]
+            \draw[->] (0,0) -- (5,0) node[right] {$x_1$};
+            \draw[->] (0,0) -- (0,5) node[above] {$x_2$};
+            \draw[thick] (0,4) -- (4,0);
+            \draw[thick] (0,4.5) -- (4.5,0);
+            \draw[thick] (0,3.5) -- (3.5,0);
+            \node at (1.5, 3.2) {$U_1$};
+            \node at (2, 2.7) {$U_2$};
+            \node at (1, 2.2) {$U_3$};
+        \end{tikzpicture}
+        \caption*{Perfekta substitut}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzpicture}[scale=0.8]
+            \draw[->] (0,0) -- (5,0) node[right] {$x_1$};
+            \draw[->] (0,0) -- (0,5) node[above] {$x_2$};
+            \draw[thick] (1,4) -- (1,1) -- (4,1);
+            \draw[thick] (1.5,4.5) -- (1.5,1.5) -- (4.5,1.5);
+            \draw[thick] (0.5,3.5) -- (0.5,0.5) -- (3.5,0.5);
+            \node at (1.2, 2.5) {$U_1$};
+            \node at (1.7, 3) {$U_2$};
+            \node at (0.7, 2) {$U_3$};
+        \end{tikzpicture}
+        \caption*{Perfekta komplement}
+    \end{minipage}
+\end{figure}
+
+\newpage
+\subsection*{Marginella substitutionskvoten, MRS}
+\begin{itemize}
+    \item MRS visar bytesförhållandet mellan två varor
+    \item Hur mycket behöver jag konsumera mer av den ena varan för att kompensera för att jag konsumerar mindre av den andra varan
+    \item MRS är lutningen på indifferenskurvan
+\end{itemize}
+
+\subsection*{Härledning av MRS}
+$$dU(x_1, x_2) = \frac{\partial U(x_1,x_2)}{\partial x_1}dx_1 + \frac{\partial U(x_1,x_2)}{\partial x_2}dx_2 = 0$$
+$$MRS_{x_1,x_2} = -\frac{dx_2}{dx_1} = \frac{(\frac{\partial U}{\partial x_1})}{(\frac{\partial U}{\partial x_2})} = \frac{MU_{x_1}}{MU_{x_2}}$$
+$$\frac{MU_{x_1}}{MU_{x_2}} \equiv \text{Kvoten mellan marginalnyttor}$$
+
+\subsection*{Konsumtionsset och budgetrestriktion}
+\begin{itemize}
+    \item Konsumtionssetet är alla kombinationer av varor som konsumenten utan restriktioner 
+    \item Men i verkligenheten finns oftast en restriktion
+\end{itemize}
+
+Olika type of restriktioner:
+\begin{itemize}
+    \item \textbf{Fysisk restriktion:} Konsumenten kan inte konsumera 24h fritid om dygnet
+    \item \textbf{Existensminimum:} Konsumenten måste ha en viss mängd mat för att överleva
+    \item \textbf{Budgetrestriktion:} Konsumenten har ändligt med pengar att spendera
+\end{itemize}
+
+\subsection*{Budgetrestriktion}
+\textbf{Antagande:}
+\begin{itemize}
+    \item Två varor $X$ och $Y$
+    \item Varorna ha konstanta priser $P_X$ och $P_Y$ och finns i obegränsad mängd
+    \item Konsumenten har en inkomst $I$
+    \item Konsumenten kan varken låna eller låna ut pengar
+\end{itemize}
+Budgetrestriktioner kan modellers med ekvationen:
+$$I = P_X Q_X + P_Y Q_Y \implies Q_Y = \frac{I}{P_Y} - \frac{P_X}{P_Y}Q_X$$
+Budgetrestriktion blir en rätlinje i $X, Y$ dimensionen. 
+Budgetsetet blir alla punkter under och på linjen dvs. det konsumenten har råd med 
+
+\newpage
+\subsection*{Exempel på budgetset}
+Utgå alltid från att $\mathbb{R}_+^2$ är hela konsumptionssetet om inte något annat nämns
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{budgetset.png}
+    \caption{Illustration av budgetset}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection*{Visualisering $U(x_1, x_2)$ med begränsningar}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{visnytto.png}
+    \caption{Illustration av visualisering av $U(x_1, x_2)$ med begränsningar}
+    \label{fig:placeholder}
+\end{figure}
+
+\newpage
+\subsection*{Optimal konsumtionsval}
+I optimum så är lutningen på indifferenskurvan lika med lutningen på budgetrestriktionen
+$$\frac{MU_x}{MU_y} = \frac{P_X}{P_Y} \implies \frac{MU_x}{P_x} = \frac{MU_y}{P_y}$$
+Alltså lutningen av indifferenskurva = lutningen av budgetrestriktion
+
+\subsection*{Nyttomaxxing med Cobb-Douglas}
+Antag nyttfunktionen: $U(x_1, x_2) = x_1^\alpha x_2^\beta$
+\newline
+\newline
+\newline
+\noindent Marginal nyttor: $MU_{x_1} = \alpha x_1^{\alpha-1} x_2^\beta$, $MU_{x_2} = \beta x_1^\alpha x_2^{\beta-1}$
+\newline
+\newline
+\newline
+\noindent Optimumvilkor: $\alpha x_1^{\alpha-1} x_2^\beta / P_x = \beta x_1^\alpha x_2^{\beta-1} / P_y \implies P_{x_2} x_2= (\frac{\beta}{\alpha})P_{x_1} x_1$
+\newline
+\newline
+\newline
+
+\noindent Om man sätter in detta i budgetrestriktionen
+
+$$I = P_{x_1} x_1 + P_{x_2} x_2 = P_{x_1} x_1 + \left(\frac{\beta}{\alpha}\right)P_{x_1} x_1$$
+
+så fås:
+$$P_{x_1}x_1 = \frac{\alpha}{\alpha + \beta} I, \text{\hspace{100pt}}P_{x_2} x_2 = \frac{\beta}{\alpha + \beta} I$$
+
+\noindent Slutsats: Då konsumenten nyttomaxxar lägger hen $\frac{\alpha}{\alpha + \beta}$ av sin inkomst på vara $x_1$ och $1-\frac{\alpha}{\alpha + \beta}$ på vara $x_2$
+
+\subsection*{Hörnlösning}
 
 
 
