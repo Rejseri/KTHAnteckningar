@@ -26,6 +26,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz}
+\usepackage{enumitem}
 
 
 
@@ -899,18 +900,276 @@ Dessa kurvor adderas horisontellt för att få fram marknadens efterfrågekurva
 
 \noindent{\Huge $\square$}
 
+\section*{Föreläsning 4}
+\subsection*{Produktions}
+Frågor:
+\begin{itemize}
+    \item Hur mycket ska produceras?
+    \item Produktionsfaktorer?
+    \item Tidshorisont? - Kort eller lång sikt?
+\end{itemize}
 
+\subsection*{Antagande inom producentteorin}
+Antanganden:
+\begin{enumerate}
+    \item Varje företag producerar en typ av product 
+    \item Företaget har redan valt vilken produkt den vill producera
+    \item Företagets mål är att minimera vid givet kvantitet
+    \item Det finns två produktionsfaktorer: Arbete (L) och Kapital (K)
+    \item Fixerad kapitalstock på kort sikt, på långsikt så kan kapital och arbetskraft variera.
+    \item Avtagande men positiv marginalavkastning på produktionsfaktorer
+    \item Obegränsad tillgång till produktionsfaktorer till fixa priser
+    \item Företaget har inga finansiella restriktioner
+\end{enumerate}
 
+\subsection*{Produktionsfunktion}
+\begin{enumerate}
+    \item $Q = f(K,L)$
+    \item $\frac{\partial Q}{\partial K} > 0, \frac{\partial Q}{\partial L} > 0$
+    \item $\frac{\partial^2Q}{\partial K^2} < 0, \frac{\partial^2Q}{\partial L^2} < 0$
+    \item På kortsikt: $Q = f(\bar{K}, L), \bar{K}$ är konstant
+\end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{produktionsfunktion.png}
+    \caption{Illustration av produktionsfunktion}
+    \label{fig:placeholder}
+\end{figure}
 
+\subsection*{Produktionsfunktion, kort sikt}
+Positiv marginalproduktivitet
+$$MP_L = \frac{\partial Q}{\partial L} > 0$$
 
+\noindent Men avtagande marginalproduktivitet
+$$\frac{\partial^2 Q}{\partial L^2} < 0$$
 
+\newpage
 
+\subsection*{Företagets problem}
+Företaget har ett minimeringsproblem: Producera en given mängd varor för så låg kostnad som möjligt
+\newline \noindent
+Viktiga komponenter:
+\begin{itemize}
+    \item Isokvant - Motsvarade indifferenskurva för produktion
+    \begin{itemize}
+        \item Isokvanten illustrerar alla kombinationer av produktionsfaktorer som ger samma produktion
+    \end{itemize}
+    \item Marginella teknisk substitutionskvoten (MRTS)
+    \begin{itemize}
+        \item Hur många enheter av en produktionsfaktor som krävs för att kompensera för en minskning av en annan produktionsfaktor, givet konstant produktion
+        \item Motsvarar MRS inom konsumentteorin
+        \item Isokost:
+        \begin{itemize}
+            \item motsvarar budgetrestriktionen
+            \item $C = R \cdot K \cdot W \cdot L \implies K = \frac{C}{R} - \frac{W}{R}L$
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 
+\subsection*{Isokvant}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{isokvant.png}
+    \caption{Illustration av isokvant}
+    \label{fig:placeholder}
+\end{figure}
 
+\subsection*{Marginella tekniska substitutionskvoten (MRTS)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{MRTS.png}
+    \caption{Illustration av MRTS}
+    \label{fig:placeholder}
+\end{figure}
 
+\subsection*{Beräkning av MRTS}
+$$dQ = \frac{\partial Q}{\partial K}dK + \frac{\partial Q}{\partial L}dL = 0$$
+$$dQ = MP_K dK + MP_L dL = 0$$
+$$MRTS_{LK} = -\frac{dK}{dL} = \frac{MP_L}{MP_K}$$
 
+\subsection*{Isokost}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{isokost.png}
+    \caption{Illustration av isokost}
+    \label{fig:placeholder}
+\end{figure}
+\newpage
+\subsection*{Företagets kostnadsminimeringsproblem}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{kostnadsminimering.png}
+    \caption{När linjen flyttas inåt så att den tangerar isokvanten så har företaget hittat den kostnadsminimerande kombinationen av produktionsfaktorer}
+    \label{fig:placeholder}
+\end{figure}
 
+Algebraisk lösning:
+När isokosten har samma lutning som isokvanten så har företaget hittat den kostnadsminimerande kombinationen av produktionsfaktorer
+$$MRTS_{LK} = \frac{MP_L}{MP_K} = \frac{W}{R} \implies \frac{MP_L}{W} = \frac{MP_K}{R}$$
+
+Vad händer om:
+\begin{itemize}
+    \item $MRTS_{LK} > \frac{W}{R}$: Företaget kan minska kostnaden genom att använda mer av $L$ och mindre av $K$
+    \item $MRTS_{LK} < \frac{W}{R}$: Företaget kan minska kostnaden genom att använda mer av $K$ och mindre av $L$
+\end{itemize}
+\newpage
+\subsection*{Förändering av faktorer}
+Vad händer när det blir dyrare eller billigare att producera samma vara?
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{förändering.png}
+    \caption{Illustration av förändring av faktorpriser}
+    \label{fig:placeholder}
+\end{figure}
+\begin{itemize}
+    \item Antag att i punkt A så så är faktorkvoten = $\frac{K}{L} = \frac{R}{W} = \frac{8}{8}$
+    \item Antag att lönen ökar så att $W$ blir 12 istället för 8
+    \item Nu är faktorkvoten = $\frac{K}{L} = \frac{R}{W} = \frac{8}{12}$
+    \item Företaget kan minska kostnaden genom att använda mer av $K$ och mindre av $L$
+    \item Den nya faktorkvoten är $\frac{K}{L} = \frac{12}{4} = 3$ till punkt B 
+\end{itemize}
+
+\newpage
+
+\subsection*{Skalavkastning}
+Beskriver hur produktionsvolymen förändras då flera produktionsfaktorer förändras samtidigt
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{skalavkastning.png}
+    \caption{Illustration av skalavkastning}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Beskriver konstant skalavkastning där produktionen ökar i samma takt som produktionsfaktorerna
+    \item Beskriver avtagande skalavkastning där produktionen ökar i en långsammare takt än produktionsfaktorerna
+    \item Beskriver ökande skalavkastning där produktionen ökar i en snabbare takt än produktionsfaktorerna
+\end{enumerate}
+
+\subsection*{Teknologisk förändering}
+$Q = Af(K,L),A$ är företagets totalfaktorproduktivitet (TFP)
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{teknologi.png}
+    \caption{Illustration av teknologisk förändring}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection*{Alternativkostnad (Opportunity cost)}
+Alternativkostnad är det högsta möjliga värdet som en aktör avstår ifrån på grund av ett beslut
+
+\begin{itemize}
+    \item Välja av att starta ett företag och avstår från lönen
+    \item Väljer att säljer flygbränsle istället för att flyga resan
+    \item Använda en kontorsbyggnad du äger istället för att hyra ut den till någon annan 
+\end{itemize}
+
+\subsection*{Sunk costs}
+Fasta kostnader som inte kan återvinnas
+\begin{itemize}
+    \item Licensavgifter, långsiktiga leasingavtal, etc
+    \item Sunk costs bör inte påverka beslutet om att fortsätta eller avveckla en verksamhet
+\end{itemize}
+
+\noindent Bara för att jag har köpt en gymkort måste jag inte gå och träna för att använda gymkortet, om stanna hemma och titta på Netflix är det bättre än att gå till gymmet och inte träna om det ger mer nytta
+
+\subsection*{Kostnadskurvor}
+
+\begin{itemize}
+    \item $FC$ = Fasta kostnader: Oberoende av produktionsvolym
+    \item $VC$ = Rörliga kostnader: Beror på produktionsvolym
+    \item $TC$ = Totala kostnader = $FC + VC$
+\end{itemize}
+
+\subsection*{Marginal- och genomsnittskostnad}
+Genomsnittlig totalkostnad:
+$$ATC = \frac{FC+VC}{Q} = AFC + AVC$$
+
+\noindent Marginalkostnad:
+$$MC = \frac{\partial TC}{\partial Q} = \frac{\partial VC}{\partial Q}$$
+\newpage
+\subsection*{Samband mellan olika kostnader, exempel}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{FK.png}
+    \caption{Illustration av kostnadskurvor}
+    \label{fig:placeholder}
+\end{figure}
+$$FC = 50$$
+$$VC = 0.1Q^3 + 1.5Q^2 + 10Q$$
+$$TC = 50 + 0.1Q^3 + 1.5Q^2 + 10Q$$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{atc.png}
+    \caption{Illustration av marginalkostnadskurvan}
+    \label{fig:placeholder}
+\end{figure}
+$$AVC = 0.1Q^2 -1.5Q + 10$$
+$$ATC = 0.1Q^2 -1.5Q + 10 + \frac{50}{Q}$$
+$$MC = 0.3Q^2 + 3Q + 10$$
+\newpage
+
+\subsection*{Kort- och långsiktiga kostnadskurvor}
+Kort sikt:
+\begin{itemize}
+    \item Kapitalstockens storlek går ej att påverka
+    \item Arbetskraftens storlek går att påverka
+\end{itemize}
+
+Lång sikt:
+\begin{itemize}
+    \item Både kapitalstockens storlek och arbetskraftens storlek går att påverka
+\end{itemize}
+
+\subsection*{Expansion path}
+Lång sikt då företaget kan förändra kapital och arbetskraft. Expansion path visar den kostnadsminimerande kombinationen av kapital och arbetskraft för varje produktionsnivå
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{expansionpath.png}
+    \caption{Illustration av expansion path}
+    \label{fig:placeholder}
+\end{figure}
+Den röda linjen illustrar expansion path på kort sikt och den blåa linjen illusterar expansion path på lång sikt
+\newpage
+\subsection*{ATC kort och långsikt}
+$Q = K^{0.4}L^{0.2}, W = R = 2, FC = 1000$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{atclk.png}
+    \caption{Illustration av ATC kort och långsikt}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection*{MC - kort och långsikt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{mclk.png}
+    \caption{Illustration av MC kort och långsikt}
+    \label{fig:placeholder}
+\end{figure}
+
+\newpage
+\subsection*{Stordriftsfördelar}
+Vad händer med den långsiktiga ATC när ett företag växer?
+$$ATC = \frac{TC}{Q}$$
+\begin{itemize}
+    \item Economies scale säger: Kostnadnerna stiger långsammare än produktionen
+    \item Constant economies of scale: Kostnaderna stiger i samma takt som produktionen
+    \item Diseconomies of scale: Kostnaderna stiger snabbare än produktionen
+\end{itemize}
+
+\noindent Notera att:
+\begin{itemize}
+    \item Skalavkastning beskriver hur produktionen föränderas när alla produktionsfaktorer föränderas lika mycket
+    \item Economies of scale baseras inte på någon gemensam faktor. Handlar bara vad som händer med den genomsnittliga kostnaden när produktionsvolymen föränderas
+\end{itemize}
+
+\noindent{\Huge $\square$}
+
+\newpage
+\section*{Föreläsning 5}
 
 
 
