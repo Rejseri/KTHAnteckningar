@@ -21,6 +21,14 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{minted}
+
+\setminted{
+    linenos,
+    breaklines,
+    frame=lines,
+    fontsize=\normalsize,
+}
 \definecolor{BrickRed}{rgb}{0.8, 0.25, 0.33} % Define BrickRed color
 
 \begin{document}
@@ -363,14 +371,281 @@ En trädstruktur som representerar HTML-dokumentet, javascript kan:
     \item Visa/dölja noder
 \end{itemize}
 
-\subsection*{}
-sida 12 i föreläsning 4
+\subsection*{Formulär och Dom}
+I elementet <form> kan man lägga vilka presentatioselement som helst
+\begin{itemize}
+    \item <input type = "text"> - textfält
+    \item <input type = "password"> - lösenordsfält
+    \item <input type = "submit"> - submit-knapp
+    \item <input type = "radio"> - radioknapp
+    \item <input type = "checkbox"> - kryssruta
+    \item <select> - rullgardinsmeny
+    \item <textarea> - textområde
+\end{itemize}
+Alla element kan refereras i javascript och ändras dynamiskt genom 
+\newline
+\noindent window.document.forms[3].efternman.value - refererar till efternamn elementet i det 4:e formuläret på sidan
 
+\subsection*{JavaScript}
+JavaScript använder event-handlers för att hantera user-input och andra händelser. Varje event-handler är associerad med ett element i DOM och körs när en specifik händelse inträffar på det elementet. M.h.a JavaScript kan man komma åt HTMl-element i dokumentet genom exempelvis: document.getElementByID("id")
 
+\newpage
 
+\subsection*{Event handler några exempel}
+\begin{itemize}
+    \item OnBlur - formulärelementet
+    \item OnChange - formulärelementet
+    \item OnClick - formulärelement, länkar
+    \item OnFocus - formulärelementet
+    \item OnSelect - text, textarea
+    \item OnSubmit - form
+\end{itemize}
 
+\subsection*{Exempel på JavaScript}
+\begin{minted}{JavaScript}
+<script type = "text/javascript">
 
+// Enkel form validering 
+function checkAddress(form) {
+    // Kontrollera att e-post och telefonnummer är ifyllda
+    if (form.email.value.length == 0 || form.email.value.index.indexOf('@') == -1) {
+        alert("Du måste ange en giltig e-postadress.");
+        form.email.focus();
+        return false;
+    }
+    // Kontrollera att telefonnummer är ifyllt
+    if (form.phone.value.length == 0) {
+        alert("Du måste ange ett telefonnummer!");
+        form.phone.focus();
+        return false;
+    }
+    return true;
+}
+\end{minted}
 
+\subsection*{CSS - \textbf{C}ascading \textbf{S}tyle \textbf{S}heets}
+\begin{itemize}
+    \item Används för att styra utseendet på HTML-element
+    \item Man slipper upprepningar av massa hårdkodningar i HTML filen
+    \item I CSS-filen kan man konfigurera varje element för sig själv.
+\end{itemize}
+
+\begin{minted}{css}
+/* CSS exempel */
+td{
+padding-top: 3px; 
+padding-left: 5px; 
+background-color: "#eeeeee"; 
+font-family: "sans-serif"; 
+font-size: 8pt;
+height: 20px;
+border-top: "1px #ffffff
+solid"; 
+} 
+
+th{ 
+background-color: "#ffffff"; 
+font-family: "sans-serif"; 
+font-size: 9pt;
+font-weight: bold; 
+height: 22px; 
+vertical-align: middle; 
+text-align: center; 
+padding: 3px; 
+border-top: "1px #aaaaaa
+dotted"; 
+border-bottom: "1px #aaaaaa
+dotted"; 
+}
+    
+\end{minted}
+
+\subsection*{Motsvarande HTML fil för CSS-exemplet}
+\begin{minted}{html}
+<!DOCTYPE html> <html> <head>
+<link rel="stylesheet" type="text/css”href="myStyle.css">
+</head>
+<body>
+<table>
+<th colspan="2">Post price </th>
+<tr> <td>Weight Kg</td> <td>Price$/Kg</td> </tr> 
+<tr> <td> 1 </td> <td>100</td> </tr> 
+<tr> <td> 2-5 </td> <td>90</td> </tr> 
+<tr> <td> 6-10 </td> <td> 80 </td></tr> 
+<tr> <td> 10 </td><td> 60 </td></tr>
+</table> 
+</body></html>
+\end{minted}
+
+\subsection*{CSS}
+\begin{minted}{css}
+p {
+    color: red;
+    text-align: center;
+}
+\end{minted}
+
+\begin{itemize}
+    \item Selector: p
+    \item Declaration: color: red;
+    \begin{itemize}
+        \item Property: color
+        \item Value: red
+    \end{itemize}
+    \item Declaration: text-align: center;
+    \begin{itemize}
+        \item Property: text-align
+        \item Value: center
+    \end{itemize}
+\end{itemize}
+\subsection*{Variabel deklaration i JavaScript}
+\begin{minted}{javascript}
+let age = 20;
+var age = 20;
+
+if (true) {
+    let x = 1;
+    var y = 2;
+}
+// x är inte tillgänglig här, den är block-scoped
+// y är tillgänglig här, den är function-scoped
+
+//================================================
+
+// konstant deklaration
+
+const PI = 3.14;
+
+// PI är final och kan inte ändras
+
+\end{minted}
+\newpage
+
+\subsection*{Typkonvertering i JavaScript}
+\begin{itemize}
+    \item 5 * null $\rightarrow$ 0
+    \item "5" - 3 $\rightarrow$ 2
+    \item "5" + 3 $\rightarrow$ "53"
+    \item "5" * 2 $\rightarrow$ NAN
+    \item false == 0 $\rightarrow$ true
+    \item false === 0 $\rightarrow$ false
+    \item "4711" == new String("4711") $\rightarrow$ true
+    \item "4711" === new String("4711") $\rightarrow$ false
+\end{itemize}
+
+\subsection*{Deklarera funktioner}
+\begin{minted}{javascript}
+//1. Funktionsdeklaration
+const calc = function(x, y) {
+    return x + y;
+};
+
+//2. Funktionsuttryck
+function calc(x, y) {
+    return x + y;
+}
+
+//3. Arrow-funktion
+const calc = (x, y) => {
+    return x + y;
+};
+
+//4. Kortare Arrow-funktion
+const calc = (x, y) => x + y;
+
+// ===============================================
+//Optional parameter
+    function halvera(a, b) {
+        if (b === undefined) {
+            return a/2;
+        }
+        else {
+            return a/2;
+        }
+    }
+    halvera(4, 54, "blahonga"); // Ignorerar extra argument
+    halvera(4); // Returnerar 2
+    halvera(4, undefined); // Returnerar 2
+\end{minted}
+
+\subsection*{Högre ordningens funktion}
+Nestlade funktioner som kan ta andra funktioner som argument eller returnera en funktion som resultat
+\begin{minted}{javascript}
+
+//Ex. 1
+function högreOrdningensFunktion(func) {
+    return function(x) {
+        return func(x) * 2;
+    }
+}
+
+//Ex. 2
+function högreOrdningensFunktion(func) {
+    return (a, b) => {console.log(a+b); }
+}
+\end{minted}
+
+\subsection*{Closure}
+Funktioner som returnerar andra funktioner eller tar andra funktioner som argument 
+\begin{minted}{javascript}
+//1. Funktion som returnerar en annan funktion
+
+function makeMultiplier(multiplier) {
+    return function(x) {
+        return x * multiplier;
+    }
+}
+
+//2. Funktion som tar en annan funktion som argument
+function applyFunction(func, value) {
+    return func(value);
+}
+\end{minted}
+
+\subsection*{Arrays}
+\begin{minted}{javascript}
+    let namnlista = ["Alice", "Bob", "Charlie"]; // Skapar en array med tre element
+    namnlista.push("David"); // Lägger till "David" i slutet av arrayen
+    namnlista.unshift("Eve"); // Lägger till "Eve" i början av arrayen
+    namnlista.pop(); // Tar bort det sista elementet ("David")
+    namnlista.shift(); // Tar bort det första elementet ("Eve")
+    namnlista.length; // Returnerar längden på arrayen (3)
+    namnlista[2] = "Petter"; // Ändrar det tredje elementet till "Petter"
+    // nytt element på index 100, mellanliggande index blir undefined
+    namnlista[100] = "Zara"; 
+\end{minted}
+
+\subsection*{Object}
+\begin{minted}{javascript}
+    let person = {
+        name: "Petter",
+        labs: [1, 2],
+    }
+
+    Object.keys(person); // Returnerar ["name", "labs"]
+    Object.assign(person, {labs: [3, 4]}, {betyg: "A"}); // Uppdaterar person-objektet med nya värden
+    console.log(person); // ger {name: "Petter", labs: [3, 4], betyg: "A"}
+\end{minted}
+
+\subsection*{JSON - JavaScript Object Notation}
+\begin{itemize}
+    \item Serialiserat format 
+    \item Likt JavaScript-objekt och arrays
+\end{itemize}
+Exempel:
+\begin{minted}{json}
+{
+    "name": "Alice",
+    "age": 30,
+    "isStudent": false,
+    "hobbies": ["reading", "traveling", "coding"],
+    "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "country": "USA"
+    }
+}
+\end{minted}
 
 
 
