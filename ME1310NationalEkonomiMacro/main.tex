@@ -1,0 +1,255 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{}
+\usepackage[T1]{fontenc}
+\title{Språck sammanfattning}
+\author{Jamal Brown}
+
+
+\renewcommand{\baselinestretch}{0.2}
+
+\setlength{\hoffset}{-18pt}         
+\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
+\setlength{\evensidemargin}{0pt} % Marge gauche sur pages paires
+\setlength{\marginparwidth}{54pt} % Largeur de note dans la marge
+\setlength{\textwidth}{481pt} % Largeur de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} % Bon pour DOS
+\setlength{\marginparsep}{7pt} % Séparation de la marge
+\setlength{\topmargin}{0pt} % Pas de marge en haut
+\setlength{\headheight}{13pt} % Haut de page
+\setlength{\headsep}{4pt} % Entre le haut de page et le texte
+\setlength{\footskip}{27pt} % Bas de page + séparation
+\setlength{\textheight}{720pt} % Hauteur de la zone de texte (25cm)
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath} % Required for the align* environment
+\usepackage{float}
+\usepackage{pgfplots} 
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\pgfplotsset{compat=1.18}
+
+
+\begin{document}
+\section{Föreläsning 1}
+\subsection{Vad är makroekonomi?}
+Studerar ekonomi som en helhet, inte enskilda marknader.
+På både lång och kort sikt.
+
+\subsection{Tre modeller}
+\begin{itemize}
+    \item Mycket långsikt: Solowmodellen
+    \item Långsikt: AS-AD modellen
+    \item Kortsikt: IS-LM modellen
+\end{itemize}
+
+\subsection{AS--AD modellen}
+Aggregerad efterfrågaekurva(AD)
+\begin{itemize}
+    \item Sammanvägning av alla efterfrågekurvor i ekonomin
+    \item Lutar alltid nedåt
+\end{itemize}
+
+\noindent Aggregerat utbudskurva(AS)
+\begin{itemize}
+    \item Sammanvägning av alla utbudskurvor i ekonomin
+    \item Beror på tidshorisonten
+\end{itemize}
+
+\subsection{Aggregerad utbud--mycket långsikt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ASLong.png}
+\end{figure}
+\begin{itemize}
+    \item Ackumulering av produktionsfaktorer
+    \item Teknisk utveckling
+    \item Studerar vad det är som får kurvan att röra sig åt höger
+\end{itemize}
+
+\subsection{Aggregerat utbud--långsikt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ASMedium.png}
+\end{figure}
+\begin{itemize}
+    \item Klassiska modellen
+    \item Produktionsfaktorer uttnyttjas fullt ut
+    \item Alltid i jämnvikt
+\end{itemize}
+
+\subsection{Aggregerat utbud--kortsikt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ASShort.png}
+\end{figure}
+Keynesiansk teori:
+\begin{itemize}
+    \item Priser och löner är trögrörliga (konstanta)
+    \item Produktionsfaktorer inte fullt utnyttjade
+\end{itemize}
+
+\newpage
+\subsection{Dynamik på kort och långsikt}
+Exempel: Expansiv penningpolitik
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Dynamic.png}
+\end{figure}
+
+\noindent På kort sikt:
+\begin{itemize}
+    \item Ökar produktionen dvs. kvantiteten
+    \item Priserna är konstanta
+\end{itemize}
+
+\noindent På lång sikt:
+\begin{itemize}
+    \item Priserna ökar
+    \item Produktionen återgår till det ursprungliga
+    \item Ingen effekt på produktionen
+\end{itemize}
+
+\noindent På medellång sikt:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{asm.png}
+\end{figure}
+\begin{itemize}
+    \item Företaget producerar mer än det naturliga utbudet
+    \item Företaget höjer priserna
+    \item Produkten återgår till det naturliga utbudet
+    \item $A\rightarrow B \rightarrow C$
+\end{itemize}
+
+\subsection{BNP och real tillväxt, Sverige 1820--2018}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{BNP.png}
+\end{figure}
+
+\begin{itemize}
+    \item Brukar mätas som procentuell förändring av BNP
+    \item Normalt 2--3\% per år
+    \item Beror på faktoranvändning och produktivitet 
+\end{itemize}
+
+\subsection{BNP och potentiell BNP}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{BNP2.png}
+\end{figure}
+
+\begin{itemize}
+    \item Potentiell BNP: Om samtliga produktionsfaktorer används fullt ut på ett långsiktigt hållbart sätt
+    \item Produktionsgap = BNP - Potentiell BNP
+    \item Övernyttjande bidrar till inflation
+    \item Undernyttjande bidrar till arbetslöshet
+\end{itemize}
+
+\subsection{Produktionsgap, Sverige 1945--2018}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{BNP3.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{BNP4.png}
+\end{figure}
+
+\begin{itemize}
+    \item Vi kan se att variationen i produktionsgapet blir större och större i nominala termer
+    \item Men procentuellt är den i princip lika stor
+\end{itemize}
+
+\subsection{Konjunkturcykelns terminologi}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{konjunktur.png}
+\end{figure}
+\begin{itemize}
+    \item BNP över potentiell BNP: Högkonjunktur
+    \item BNP under potentiell BNP: Lågkonjunktur
+    \item BNP påväg upp: konjunkturuppgång
+    \item BNP påväg ner: konjunkturnedgång
+\end{itemize}
+
+\subsection{Samband produktion och arbetslöshet}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{BNP5.png}
+\end{figure}
+
+\begin{itemize}
+    \item När produktionen ökar, minskar arbetslösheten
+    \item När produktionen minskar, ökar arbetslösheten
+\end{itemize}
+
+\subsection{AS och Philipskurvan}
+\begin{itemize}
+    \item Samband mellan produktion och prisnivån
+    \item Samband mellan arbetslöshet och inflation
+\end{itemize}
+
+\subsection{Årlig philipskurva i Sverige}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{philip.png}
+\end{figure}
+
+\subsection{BNP}
+\begin{itemize}
+    \item Marknadsvärdet på alla varor och tjänster som produceras i ett land under en viss tidsperiod
+    \item Räknar ej med insatsvaror, dvs. varor som används i produktionen av andra varor
+\end{itemize}
+
+Problem: 
+\begin{itemize}
+    \item Inkluderar inte hemmaproduktion eller svartproduktion
+    \item Ta inte hänsyn till miljöförstöring
+    \item Att du lagar mat åt dig själv räknas inte, men om du beställer mat räknas det 
+\end{itemize}
+
+\subsection{BNP per capita}
+BNP per capita är ett välståndsmått men:
+\begin{itemize}
+    \item Tar inte hänsyn till inkomstfördelning
+    \item Inkluderar inte populationens välbefinnande
+\end{itemize}
+
+\subsection{HDI -- Human Development Index}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{HDI.png}
+    \caption{Finns en korrelation mellan BNP per capita och HDI, men det är inte perfekt.}
+\end{figure}
+
+\subsection{Egen rapporterad livskvalitet}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{life.png}
+    \caption{Även egen rapporterad lycka finns det ett samband}
+\end{figure}
+
+\subsection{Tillväxt BNP per capita OECDf}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
