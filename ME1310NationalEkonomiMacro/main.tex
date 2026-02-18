@@ -32,7 +32,7 @@
 
 
 \begin{document}
-\section{Föreläsning 1}
+\section{Föreläsning 1: Intro}
 \subsection{Vad är makroekonomi?}
 Studerar ekonomi som en helhet, inte enskilda marknader.
 På både lång och kort sikt.
@@ -434,15 +434,215 @@ $$\frac{x}{P_t} \text{enheter BNP}$$
 $$\frac{x(1+R)}{P_{t+1}} \text{enheter BNP}$$ 
 \noindent Den reala räntan fås genom:
 $$r_{t+1} = \frac{x(1+R_t)/P_{t+1} - x/P_t}{x/P_t} = \frac{1+R_t}{1 + \pi_{t+1}}$$
-$$\implies R_t = r_{t+1} + pi_{t+1} + r_{t+1} \pi_{t+1}$$
+$$\implies R_t = r_{t+1} + \pi_{t+1} + r_{t+1} \pi_{t+1}$$
 
+\section{Föreläsning 2: Ekonomisk tillväxt}
+\subsection{Inkomstfördelning 2023}
+\begin{itemize}
+    \item Europa, Nordamerika samt Chile är hög inkomstländer
+    \item BNP per capita är 112 gånger högre i top 5 länderna än i botten 5 länderna
+    \item BNP per capita och ljusintensitet samvarierar
+\end{itemize}
 
+\subsection{Inkomstfördelning 156 länder}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{inkomstfördelning.png}
+\end{figure}
 
+\begin{itemize}
+    \item Vi kan se ojämnlikheten i BNP per capita har ökat 1970--2014
+    \item Däremot ökar BNP per capita i helhet på alla länder 
+\end{itemize}
 
+\subsection{Lorenzkurvan}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{lorenz.png}
+\end{figure}
 
+\begin{itemize}
+    \item Mäter andel av världens inkomst som en funktion av andel av världens population
+    \item Gini-koefficienten är arean mellan den räta linjen och Lorenzkurvan, delat med arean under den räta linjen
+\end{itemize}
 
+\subsection{Tillväxt takt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{growth.png}
+    \caption{Om dessa länder kommer att ha samma tillväxttakt från 1990-2019}
+\end{figure}
 
+\subsection{BNP per capita rank 1970 vs 2019}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{rank.png}
+    \caption{illustration av ländernas rank 2019 vs 1970}
+\end{figure}
 
+\subsection{Tillväxtdekomponering}
+Produktionsfunktion: $Y = A \cdot F(K,N)$
+\begin{itemize}
+    \item $Y$: BNP
+    \item $A$: Teknologisk nivå
+    \item $K$: Kapitalstock
+    \item $N$: Antal sysselsatta
+\end{itemize}
 
+\noindent I perfekt konkurrens gäller:
+$$w = MPL = A \cdot F_N(K,N), \hspace{15pt} r = MPK = A \cdot F_K(K,N)$$
+
+\noindent Sammanfattningvis:
+$$\frac{\Delta Y}{Y} = \frac{\Delta A}{A} + \underbrace{(\frac{w \cdot N}{Y})}_{1-\theta}\frac{\Delta N}{N} + \underbrace{(\frac{r \cdot K}{Y})}_{\theta}\frac{\Delta K}{K}$$
+
+\begin{itemize}
+    \item Arbetskraftens bidgrag till tillväxt: {\Large $(\frac{w \cdot N}{Y})\frac{\Delta N}{N}$}
+    \item Kapitalets bidrag till tillväxt: {\Large $(\frac{r \cdot K}{Y})\frac{\Delta K}{K}$}
+\end{itemize}
+\newpage
+\subsection{Tillväxtdekomponering, empiriskt}
+Räkna ut teknologi faktorn i en solow residual:
+\vspace{15pt}
+
+\noindent Exempel på tillväxtdekomponering i Sverige 2010--2019:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{dekomponering.png}
+\end{figure}
+
+\subsection{Tillväxt teori}
+Två typer 
+\begin{itemize}
+    \item Exogen tillväxtteori: Teknologisk utveckling sker utanför modellen
+    \item Endogen tillväxtteori: Teknologisk utveckling sker inom modellen
+    \item Solowmodellen: En neoklassisk exogen tillväxtmodell
+    \item Solowmodellen baseras på en neoklassisk produktionsfunktion 
+\end{itemize}
+
+\subsection{Neoklassisk produktionsfunktion, villkor}
+Alla produktionsfunktioner måste uppfylla följande villkor för att användas i solowmodellen:
+\begin{enumerate}
+    \item Konstant skalavkastning: $F(A,\lambda K, \lambda N) = \lambda Y, \text{\hspace{15pt}} \lambda > 0$
+    \item Positiva och avtagande marginalprodukter: 
+    \begin{itemize}
+        \item {\large $\frac{\partial F(A,K,N)}{\partial K} > 0$}
+        \item {\large $\frac{\partial F(A,K,N)}{\partial N} > 0$}
+        \item {\large $\frac{\partial^2 F(A,K,N)}{\partial K^2} < 0$}
+        \item {\large $\frac{\partial^2 F(A,K,N)}{\partial N^2} < 0$}
+    \end{itemize}
+    \item Inadavillkor
+    \begin{itemize}
+        \item {\large $\lim\limits_{K \to 0}\frac{\partial F(A,K,N)}{\partial K} = \lim\limits_{N \to 0}\frac{\partial F(A,K,N)}{\partial N} = \infty$}
+        \item {\large $\lim\limits_{K \to \infty}\frac{\partial F(A,K,N)}{\partial K} = \lim\limits_{N \to \infty}\frac{\partial F(A,K,N)}{\partial N} = 0$}
+    \end{itemize} 
+
+\end{enumerate}
+
+\subsection{Solowmodellen}
+Produktionsfunktion: $Y = A \cdot F(K,N)$
+\vspace{5pt}
+
+\noindent På grund av konstant skalavkastning kan vi skriva om produktionsfunktionen i per capita termer:
+\begin{itemize}
+    \item $y = f(k)$
+    \item $y = \frac{Y}{N}$
+    \item $k = \frac{K}{N}$
+    \item $f(k) = A \cdot F(\frac{K}{N},1)$
+\end{itemize}
+
+\noindent Aggregerad kapitalachumuleringsfunktion: 
+\begin{itemize}
+    \item $\Delta K = sY - dK$
+    \item Vi antar en sluten ekonomi dvs. en ekonomi utan utrikeshandels 
+    \item Vi har inte heller in offentlig sektor, därför går alla besparingar till investeringar
+\end{itemize}
+
+\noindent Förändering i kapitalstock är alltså:
+$$sparkvot * produktion - deprecieringstakt * kapitalstock$$
+
+\noindent i per capita termer:
+$$\Delta k = s y - (d + n)k, \hspace{7pt}\text{n är populations tillväxten}$$
+
+\noindent Sammanfattningsvis två funktioner:
+\begin{itemize}
+    \item Produktionsfunktion: $y = f(k)$
+    \item Kapitalackumuleringsfunktion: $\Delta k = s y - (d + n)k$
+    \item Systems jämnvikt: $\Delta k = 0 \implies s f(k^*) = (d + n)k^*$
+\end{itemize}
+
+\subsection{Solowmodellen, visuell lösning}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{solow.png}
+\end{figure}
+
+\subsection{Solowmodellen, ökar sparande till s'}
+Vad händer när politiker gör det mer lönsamt att spara, dvs. ökar sparkvoten från $s$ till $s'$?
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{solow2.png}
+\end{figure}
+
+\subsection{Hur ser övergången ut?}
+\begin{itemize}
+    \item $y = f(k)$
+    \item $\Delta k = s y - (d + n)k$
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{solow3.png}
+\end{figure}
+
+\subsection{Slutsatser}
+\begin{itemize}
+    \item Ekonomin sträver mot en jämnvikt
+    \item Vid jämvikten i den enkla modellen är tillväxten per capita lika med 0
+    \item OM sparkvoten ökar
+    \begin{itemize}
+        \item Tillväxttakten ökar omedelbart och konvergerar sedan mot 0
+        \item Om kapitalstocken, sparandet och BNP per capita ökar, så konvergerar över tid mot högre jämnviktsnivåer
+        \item Konsumptionen per capita kan kovergera antingen mot en ny högre eller lägre jämnviktsnivå
+    \end{itemize}
+\end{itemize}
+
+\subsection{Solowmodellen med teknologisk utveckling}
+Produktionsfunktion: $Y = F(K, A \cdot N)$
+
+\noindent Omskrivning med konstant skalavkastning:
+\begin{itemize}
+    \item $\tilde{y} = f(\tilde{k})$
+    \item $\tilde{y} = \frac{Y}{A \cdot N}$
+    \item $\tilde{k} = \frac{K}{A \cdot N}$
+    \item $f(\tilde{k}) = F(\frac{K}{A \cdot N},1)$
+\end{itemize}
+
+\noindent Aggregerad kapitalackumuleringsfunktion: 
+$$\Delta K = sY - dK$$
+
+\noindent Uttryckt i per capitaform:
+$$\Delta \tilde{k} = s \tilde{y} - (d + n + g)\tilde{k}, \hspace{7pt}\text{g är teknologisk utveckling}$$
+
+\subsection{Solowmodellen med teknologisk utveckling, visuellt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{solow4.png}
+\end{figure}
+
+\subsection{Slutsatser: Solowmodellen med teknologisk utveckling}
+\begin{itemize}
+    \item Ekonomin konvergerar mot ett jämnviktsläge
+    \item BNP per effektiv arbetare är konstant vid jämnvikten: $\Delta \tilde{y} = 0$
+\end{itemize}
+
+\noindent Vad gäller för BNP per arbetare?
+$$\tilde{y} = \frac{Y}{AN} = \frac{y}{A} \implies y = \tilde{y}A$$
+
+\noindent Tillväxttakten ges av:
+$$\frac{\Delta y}{y} = \frac{\Delta A}{A} = g$$
+
+\noindent BNP per capital växer i samma takt som teknologin 
+\vspace{7pt}
+
+\noindent Tillväxttakten är exogen, förklaras inte i modellen utan är en input parameter
 
 \end{document}
