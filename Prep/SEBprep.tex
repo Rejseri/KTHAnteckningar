@@ -91,17 +91,91 @@ The shortfall risk is that the value of the collateral may fall below the loan a
     \item Security price = \$10,000,000
 \end{itemize}
 Calculation of the purchase price:
-$$\text{Initial margin} = \frac{Security price}{Purchase price} = 1.06$$
-$$\implies P_{purchase} = \frac{P_{security}}{\text{initial margin}} = \frac{10,000,000}{1.06} = 9,433,963$$
+$$\text{Initial margin} = \frac{\text{Security price}}{\text{Purchase price}} = 1.06$$
+$$\implies P_{purchase} = \frac{P_{security}}{\text{initial margin}} = \frac{10,000,000}{1.06} = 9,433,962$$
 
 \begin{itemize}
     \item If you did a outright sale without buy back obligation it would have been \$10,000,000
-    \item Due to the initial margin, the buyer only needs to pay \$9,433,963 for the security, which is less than the security price. This provides a buffer against price fluctuations of the collateral.
+    \item Due to the initial margin, the buyer only needs to pay \$9,433,962 for the security, which is less than the security price. This provides a buffer against price fluctuations of the collateral.
 \end{itemize}
 
 \subsection{Repurchase price}
 When the seller repurchases the security the security will not be sold at market price. 
 It would be the purchase price + interest (repo rate) 
 % conitnue video 30:30
+
+\subsection{Haircut}
+$$\text{Haircut} = \frac{P_{security} - P_{purchase}}{P_{security}}$$
+\begin{itemize}
+    \item $P_{security} = \$10,000,000$
+    \item $P_{purchase} = \$9,433,962$
+\end{itemize}
+Calculation of the haircut:
+$$\text{Haircut} = \frac{10,000,000 - 9,433,962}{10,000,000} = \frac{566,038}{10,000,000} \approx 5.66\%$$
+
+\subsection{Difference between haircut and inital margin}
+\begin{itemize}
+    \item $P_{security} = Initial margin \cdot P_{purchase}$
+    \item $P_{security} = P_{purchase} + \text{Haircut(\%)} \cdot P_{security}$
+\end{itemize}
+
+\subsection{Initial margin to haircut}
+
+$$Haircut = 1 - \frac{1}{Initial Margin}$$
+
+\noindent For example, if the initial margin is 106\%, then:
+$$Haircut = 1 - \frac{1}{1.06} = 1 - 0.9434 = 0.0566 = 5.66\%$$
+
+\subsection{Example and solution}
+\begin{itemize}
+    \item Security price = \$100,000,000 (Face value, trading at par for 100\% of face value)
+    \item Initial margin = 103\%
+    \item Repo rate = 4\%
+    \item Repo term = 15 days
+\end{itemize}
+
+Purchase price calculation:
+$$\frac{\text{Security price}}{\text{Purchase price}} = 1.03$$
+$$\frac{100,000,000}{1.03} = 97,087,379$$
+$$\implies \text{Purchase price} = 97,087,379$$
+
+Re-purchase price calculation:
+$$P_{repurchase} = P_{purchase} + P_{purchase} \cdot \text{repo rate}$$
+$$\implies P_{repurchase} = 97,087,379 + 97,087,379 \cdot \frac{0.04 \cdot 15}{365} = 97,246,975$$
+
+\subsection{Ownership}
+\begin{itemize}
+    \item The seller of the security retains the benefits/risks of ownership
+    \item Since they pre-agreed the repurchased the security at the predetermined price regardless of security market value
+    \item Income on the bond such as coupons belongs to the security seller
+    \item Therefore, the value of the security should taken into consideration by the seller
+\end{itemize}
+
+\subsection{Variation margin}
+%51:50
+%https://www.youtube.com/watch?v=_Z7qZvnhdKE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
