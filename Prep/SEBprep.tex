@@ -33,18 +33,19 @@
 
 \begin{document}
 
-\section*{Collateral management}
+\section{Quick view of collateral management}
+\subsection{Collateral management}
 Collateral management is the process of managing and optimizing the collateral that is used to secure financial transactions. It involves the identification, valuation, and monitoring of collateral assets, as well as the management of collateral agreements and the mitigation of counterparty risk. Effective collateral management is crucial for financial institutions to ensure that they have sufficient collateral to meet their obligations and to minimize the risk of losses in the event of counterparty default.
-\section*{Buy side}
+\subsection{Buy side}
 The buy side refers to the part of the financial industry that is involved in the purchasing of securities and other financial instruments. This includes institutional investors such as mutual funds, pension funds, hedge funds, and insurance companies, as well as individual investors. The buy side is responsible for making investment decisions and managing portfolios, with the goal of generating returns for their clients or themselves. They typically work with sell-side firms, which provide research, trading, and other services to facilitate the buying and selling of securities.
-\section*{Sell side}
+\subsection{Sell side}
 The sell side refers to the part of the financial industry that is involved in the selling of securities and other financial instruments. This includes investment banks, brokerage firms, and other financial institutions that provide services such as underwriting, market making, research, and trading. The sell side is responsible for facilitating transactions between buyers and sellers, providing liquidity to the markets, and offering investment products and services to clients. They typically work with buy-side firms, which are responsible for making investment decisions and managing portfolios.
 
 \newpage
-\section*{Repo: Repurchase Agreements}
+\section{Repo: Repurchase Agreements}
 For collateralized secured loan
 
-\subsection*{The steps of repo agreement}
+\subsection{The steps of repo agreement}
 \begin{enumerate}
     \item Security seller sells a security (e.g., a bond) to a security buyer for cash.
     \item The cash is the purchase price of the security.
@@ -55,7 +56,7 @@ For collateralized secured loan
     \item The buyer will hold the security during the repo term to make them feel safe
 \end{enumerate}
 
-\subsection*{Key features of repo agreement}
+\subsection{Key features of repo agreement}
 \begin{itemize}
     \item For legal reasons the collaterized loan is structured as a sale and repurchase agreement, rather than a loan with collateral. 
     \item Repos agreements are usually short term most repos are overnight repos. Longer than 1 day is considered term repo.
@@ -64,7 +65,7 @@ For collateralized secured loan
     \item The interest rate of a general collateral repo rate is called the general collateral rate (GC rate)
 \end{itemize}
 
-\subsection*{Example question repo rate calculation}
+\subsection{Example question repo rate calculation}
 \begin{itemize}
     \item Assume repo rate is 4\% per annum
     \item The purchase price of the security is \$10,000,000
@@ -76,7 +77,7 @@ $$r_{month} = 1.04^{\frac{30}{365}} \approx 1.00323$$
 $$P_{repurchase} = 1.00323 \times 10,000,000 = 10,032,288$$
 
 \newpage
-\subsection*{Managing shortfall risk}
+\subsection{Managing shortfall risk}
 The shortfall risk is that the value of the collateral may fall below the loan amount
 \begin{itemize}
     \item Use high quality collateral (e.g., government bonds), usually do not fluctuate much in value
@@ -89,12 +90,18 @@ The shortfall risk is that the value of the collateral may fall below the loan a
     \item Intial margin = 106\%
     \item Security price = \$10,000,000
 \end{itemize}
+Calculation of the purchase price:
+$$\text{Initial margin} = \frac{Security price}{Purchase price} = 1.06$$
+$$\implies P_{purchase} = \frac{P_{security}}{\text{initial margin}} = \frac{10,000,000}{1.06} = 9,433,963$$
 
+\begin{itemize}
+    \item If you did a outright sale without buy back obligation it would have been \$10,000,000
+    \item Due to the initial margin, the buyer only needs to pay \$9,433,963 for the security, which is less than the security price. This provides a buffer against price fluctuations of the collateral.
+\end{itemize}
 
-
-
-
-
-
+\subsection{Repurchase price}
+When the seller repurchases the security the security will not be sold at market price. 
+It would be the purchase price + interest (repo rate) 
+% conitnue video 30:30
 
 \end{document}
