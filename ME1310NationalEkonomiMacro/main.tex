@@ -234,14 +234,207 @@ BNP per capita är ett välståndsmått men:
 \end{figure}
 
 \subsection{Tillväxt BNP per capita OECD}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{BNP6.png}
+\end{figure}
 
+\subsection{BNP per capita i Sverige 1950--2031}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{BNP7.png}
+\end{figure}
 
+\subsection{Sveriges utveckling i OECD välståndsliga}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{BNP8.png}
+\end{figure}
+\begin{itemize}
+    \item Sverige har legat i topp i många år
+    \item Men nu har vi halkat ner till från 4:e till 13:e plats
+\end{itemize}
 
+\subsection{Nationalräkenskaper}
+Vad är nationalräkenskaper?
+\begin{itemize}
+    \item Visar vad BNP består av
+    \begin{itemize}
+        \item Inkomst
+        \item Produktion
+        \item Användning
+    \end{itemize}
+    \item Ett sätt att karaktärisera ekonomin
+\end{itemize}
 
+\subsection{Ekonomins storlek förenklat}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{BNP9.png}
+\end{figure}
 
+\subsection{Utbudets och efterfrågans komponenter}
+Totala utbud av varor och tjänster:
+\begin{itemize}
+    \item Inhemsk produktion (Y)
+    \item Import (Q)
+\end{itemize}
 
+\noindent Totala efterfråga på varor och tjänster
+\begin{itemize}
+    \item Hushållens konsumtion (C)
+    \item Företagens investeringar (I)
+    \item Offentliga konsumtion (G)
+    \item Export (X)
+\end{itemize}
 
+\noindent Fundamental nationainkomstidentitet:
+{\large $$ Y + Q = C + I + G + X $$}
+{\large $$\implies Y = C + I + G + NX$$}
+{\large $$NX = X - Q$$}
+\noindent Där $NX$ är nettoexporten
 
+\subsection{Hushållens konsumtion (C)}
+Inköp av varor hos hushållen 
+\begin{itemize}
+    \item Varaktiga varor: bilar, möbler, etc.
+    \item Icke-varaktiga varor: mat, fika, etc.
+    \item Tjänster: frisör, restaurang, etc.
+\end{itemize}
+
+\subsection{Hushållens konsumtion (C) \% av BNP}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{C.png}
+\end{figure}
+I Sverige består konsumtionen av BNP betydligt mindre än andra länder. I Sverige har vi väldigt stor offentilg konsumtion istället
+
+\subsection{Företagens investeringar (I)}
+\begin{itemize}
+    \item Bostadsbyggande
+    \item Nya maskiner 
+    \item Byggade av favriker och kontor
+    \item Förändring av varulager
+\end{itemize}
+
+Investeringar inkluderar inte:
+\begin{itemize}
+    \item Investering i utbildning
+    \item Köp av obligationer och aktier
+    \item Konsumenternas privata investeringar i t.ex. aktier och fonder räknas som konsumtion, inte investeringar
+\end{itemize}
+
+\subsection{Offentlig konsumtion (G)}
+\begin{itemize}
+    \item Nationellt försvar
+    \item Löner av statliga anställda
+    \item Bidrag till hushåll och företag räknas inte som offentlig konsumtion, utan som transfereringar
+\end{itemize}
+
+\subsection{Olika komponenter i Sverige}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{components.png}
+\end{figure}
+\newpage
+\subsection{Nominel vs real BNP}
+Nominell BNP beräknas 
+$$NGDP_t = \sum_{i=1}^{n} P_i Q_i$$
+
+\noindent Där $P_i$ är priset på vara $i$ och $Q_i$ är kvantiteten av vara $i$ som produceras under år $t$.
+
+\vspace{15pt}
+\noindent Tillväxt i nominell BNP beräkas som: 
+$$G_{t+1} = \frac{NGDP_t - NGDP_{t-1}}{NGDP_{t-1}}$$
+$$G_{t+1} = \sum_{i}\omega_{i,t}(\hat{P}_{i,t+1} + \hat{Q}_{i,t+1} + \hat{P}_{i,t+1} \hat{Q}_{i,t+1})$$
+$$\omega_{i,t} = \frac{P_i Q_i}{NGDP_t}$$
+$\hat{}$ representerar procentuell förändring mellan år $t$ och $t+1$
+\vspace{15pt}
+
+\noindent Hur ska vi fånga upp enbart kvanitetsförändring?
+$$G_{t+1} = \sum_{i}\omega_{i,t}(\hat{P}_{i,t+1} + \hat{Q}_{i,t+1} + \hat{P}_{i,t+1} \hat{Q}_{i,t+1}), \omega_{i,t} = \frac{P_i Q_i}{NGDP_t}$$
+
+\noindent Vi håller priserna konstanta vid ett valt basår
+$$g_{t+1} = \sum_{i} \hat{\omega}_{i,t} \hat{Q}_{i,t+1}, \hspace{15pt} \hat{\omega}_{i,t} = \frac{P_{i,B} Q_{i,t}}{P_{i,B} Q_{i,B}}, \hspace{15pt} RGDP_t = \sum_{i} P_{i,B} Q_{i,t}$$
+
+\noindent $g$ är den reala tillväxten i ekonomin mellan år $t$ och $t+1$. $P_{i,B}$ är priset på vara $i$ i basåret. $RGDP$ är den reala BNPn.
+
+\vspace{15pt}
+\noindent $G$ inkluderar båda pris- och kvanitetsänderingar, medan $g$ inkluderar endast kvantitetsförändringar.
+
+\subsection{Nominell vs real BNP i Sverige}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{BNP10.png}
+\end{figure}
+
+\subsection{Viktiga identiteter}
+\begin{itemize}
+    \item Nationalinkomstidentiteten: $Y = C + I + G + NX$
+    \item Disponibel inkomst (YD): $YD = Y + TR - TA_{skatter}$
+    \item Fördelning av disponibel inkomst: $YD = C + S$
+    \item Sparande (S): $S = I + (G+TR-TA)+NX, \hspace{15pt} (G + TR - TA) = BD$
+    \item Hushållen kan fördela sitt sparande på tre sätt
+    \begin{itemize}
+        \item Lån til företag (I)
+        \item Lån till staten (BD)
+        \item Lån till utlandet (NX)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Inflation (KPI)}
+Tidsserie över KPI i Sverige 1980--2025
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kpi.png}
+\end{figure}
+
+\subsection{Inflation: Förändering av KPI (YoY)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kpi2.png}
+\end{figure}
+
+\subsection{Inflation: beräkning}
+Procentuella förändring i den allmänna prisnivån mellan år $t$ och $t+1$:
+$$\pi_{t+1} = \frac{P_{t+1} - P_t}{P_t}$$
+
+\subsection{BNP--deflator}
+Definierar som kvoten mellan nominell BNP och real BNP:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{deflator.png}
+\end{figure}
+
+\subsection{Konsumentprisindex, KPI}
+\begin{itemize}
+    \item Mäts med en standardiserad varukorg---representativt för konsumenter
+    \item Visar levnadskostnaderna för ett genomsnittligt hushåll
+\end{itemize}
+
+\subsection{Jämförelse mellan KPI mot BNP--deflator}
+\begin{itemize}
+    \item KPI är mer begränsad varukorg
+    \item BNP--deflator inkluderar alla varor och tjänster som produceras i ekonomin
+    \item KPI inkluderar importvaror, medan BNP--deflator inte gör det
+\end{itemize}
+
+\subsection{Producentprisindex, PPI}
+\begin{itemize}
+    \item Standardiserad varukorg för producenter
+    \item Fångar produktionskostnad för ett genomsnittligt företag
+    \item Inkluderar både råvaror och insatsvaror
+    \item Fångar inflation i tidigare skede än KPI
+\end{itemize}
+
+\subsection{Inflation, nominell och real ränta}
+Antar att jag idag har $x$ kronor då kan jag vid tidspunkt $t$ köpa:
+$$\frac{x}{P_t} \text{enheter BNP}$$
+\noindent Om jag istället investerar mina pengar kan jag vid tidpunkt $t+1$ köpa: 
+$$\frac{x(1+R)}{P_{t+1}} \text{enheter BNP}$$ 
+\noindent Den reala räntan fås genom:
+$$r_{t+1} = \frac{x(1+R_t)/P_{t+1} - x/P_t}{x/P_t} = \frac{1+R_t}{1 + \pi_{t+1}}$$
+$$\implies R_t = r_{t+1} + pi_{t+1} + r_{t+1} \pi_{t+1}$$
 
 
 
