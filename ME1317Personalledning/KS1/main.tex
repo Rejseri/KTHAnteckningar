@@ -19,7 +19,11 @@
 \usepackage{eso-pic}
 
 \usetikzlibrary{calc}
+
+% Kommentera bort \iffalse \fi blocket 
+\iffalse  
 \AddToShipoutPictureBG{%
+
 \begin{tikzpicture}[remember picture,overlay]
     \foreach \i in {1,...,8} {
         \draw[black!100] 
@@ -28,6 +32,7 @@
     }
 \end{tikzpicture}
 }
+\fi
 
 \begin{document}
 

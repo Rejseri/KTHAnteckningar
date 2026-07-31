@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "lint": "prettier --write \"**/*.tex\" --plugin=prettier-plugin-latex --print-width 120"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-latex": "^2.0.1"
+  }
+}
