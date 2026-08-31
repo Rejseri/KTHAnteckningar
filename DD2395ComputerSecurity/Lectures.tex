@@ -27,6 +27,8 @@
 \usepackage{float}
 \usepackage{pgfplots} 
 \usepackage{algorithm}
+\usepackage{mathrsfs}
+
 \usepackage{algpseudocode} % test comment
 \usepackage[hidelinks]{hyperref}
 \pgfplotsset{compat=1.18}
@@ -62,18 +64,146 @@
 \begin{itemize}
     \item \textbf{Symmetric key:} Alice and Bob both knows the value of the secret key
     \item \textbf{Assymmetric key:} A user has two keys, a secret key and a public key
+    \item \textbf{Open design:} Everyone knows how the system is designed
 \end{itemize}
 
+\subsection{Confidentiality}
+\begin{enumerate}
+    \item Alice uses the key to \textbf{encrypt} the message
+    \item Alice sends the encrypted message over the insecure channel
+    \item Eve sees the encrypted message, but cannot read the original message
+    \item Bob receives the encrypted message and uses the key to \textbf{decrypt} the message back into its original form 
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Screenshot from 2026-08-31 14-06-04.png}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Plaintext: }The original message
+    \item \textbf{Ciphertext: }The encrypted message
+\end{itemize}
 
+\subsection{Integrity and Authenticity}
+Integrity and authenticity can be provided by using \textbf{tag} or signature on messages
+\begin{itemize}
+    \item Alice uses the key to generate a tag for the message
+    \item Alice sends the message and the tag over the insecure channel
+    \item If Mallory modifies the message, Bob will detect it when he checks the tag
+    \item Bob receives the message and check if the tag is valid
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Screenshot from 2026-08-31 14-19-35.png}
+\end{figure}
 
+\subsection{Threat models for confidentiality}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Screenshot from 2026-08-31 14-23-36.png}
+\end{figure}
+\begin{itemize}
+    \item The current lecture focuses on \textbf{Chosen-plaintext} 
+\end{itemize}
 
+\subsection{Cryptography Roadmap}
+\begin{itemize}
+    \item Symmetric-key
+    \begin{itemize}
+        \item Confidentiality:
+        \begin{itemize}
+            \item One-time pad
+            \item Block ciphers (e.g. AES)
+        \end{itemize}
+        \item Integrity and authenticity:
+        \begin{itemize}
+            \item Hash functions
+            \item MACs (e.g. HMAC) - Message Authentication Code
+        \end{itemize}
+    \end{itemize}
+        \item Assymmetric-key
+        \begin{itemize}
+            \item Confidentiality:
+            \begin{itemize}
+                \item RSA encryption
+                \item ElGamal encryption
+            \end{itemize}
+            \item Integrity and authenticity:
+            \begin{itemize}
+                \item Digital signatures (e.g. RSA, ECDSA)
+            \end{itemize}
+    \end{itemize}
+\end{itemize}
 
+\subsection{Symmetric Key Cryptography}
+Alice and Bob shares a secret key. Symmetric cryptography has three algorithms:
+\begin{enumerate}
+    \item KeyGen() $\rightarrow$ Generates a key $K$
+    \item Enc($K$, $M$) $\rightarrow$ Encrypts \textbf{plaintext} $M$ into \textbf{ciphertext} $C$
+    \item Dec($K$, $C$) $\rightarrow$ Decrypts \textbf{ciphertext} $C$ using the key $K$
+\end{enumerate}
 
+\subsection{Confidentiality: IND-CPA definition}
+\begin{enumerate}
+    \item Eve may choose plaintext to send to Alice and receives their chiphertexts
+    \item Eve issues a pair of plaintexts $M_0$ and $M_1$ to Alice
+    \item Alice chooses either $M_0$ or $M_1$ encrypts it and do not tell Eve which one she chose
+    \item Eve may again choose plaintext to send to Alice and receives their ciphertexts
+    \item Eve guesses which plaintext Alice chose and wins if she guesses correctly
+\end{enumerate}
+An algorithm is \textbf{IND-CPA} secure if Eve cannot guess with probability larger than $50\% + \epsilon$. Where $\epsilon$ is a negligible advantage.
 
+\subsection{Edge case: Length}
+\begin{itemize}
+    \item Cryptographic schemes are not allwed to leak the length of the message
+    \item To prevent this there are two solutions:
+    \begin{itemize}
+        \item Make all messages the same length (unpractical)
+        \item Pad messages to a fixed length (practical)
+    \end{itemize}
+\end{itemize}
 
+\subsection{Negligible advantage}
+For an encryption scheme with a k-bit key the advantage for Eve should be $\mathcal{O}(1/2^k)$.
+\begin{itemize}
+    \item $\epsilon = (\frac{1}{2})^{128}$ -- Currently unlikely
+    \item $\epsilon = (\frac{1}{2})^{20}$ -- Fairly likely
+    \item \textbf{Takeaway:} $\epsilon < (\frac{1}{2})^{80}$ is a current reasonable threshold
+\end{itemize}
 
+\subsection{One-Time pad key generation}
+\noindent Encryption scheme
+\begin{itemize}
+    \item Given a random key $K$ of length $n$
+    \item Given a message $M$ of length $n$
+    \item $C = M \oplus K$ where $\oplus$ is the bitwise XOR operation
+\end{itemize}
 
+\noindent Decryption scheme
+\begin{itemize}
+    \item Given a random key $K$ of length $n$
+    \item Given a ciphertext $C$ of length $n$
+    \item $M = C \oplus K$ where $\oplus$ is the bitwise XOR operation
+\end{itemize}
 
+\subsection{One-Time pad functions}
+\begin{itemize}
+    \item \textbf{KeyGen()}
+    \begin{itemize}
+        \item Randomly generate an n-bit key $K$, where n is the length of your message
+        \item We assume that Alice and Bob have a secure channel to share the key
+        \item We generate a new key for every message
+    \end{itemize}
+    \item \textbf{Enc(K, M)}
+    \begin{itemize}
+        \item $M \oplus K = C$
+    \end{itemize}
+    \item \textbf{Dec(K, C)}
+    \begin{itemize}
+        \item $C \oplus K = M$
+    \end{itemize}
+\end{itemize}
+
+\noindent One-Time pad is \textbf{perfectly secure} however not IND-CPA secure since the key can only be used once.
 
 
 
