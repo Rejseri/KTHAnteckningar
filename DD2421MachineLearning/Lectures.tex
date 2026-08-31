@@ -35,18 +35,42 @@
 \begin{document}
 \title{DD2421 - Machine Learning}
 \maketitle
-\section{Lecture 1}
+\section{Lecture 1 -- Introduction}
 \begin{itemize}
     \item \textbf{Supervised learning:} Learn mappings from A to B, B was provided by a human
     \item \textbf{Unsupervised learning:} Analyzing unstructured data, no labels provided
 \end{itemize}
 
+\section{Lecture 2 -- Decision Trees}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{decision_tree.png}
+    \caption{Example of decision tree predicting whether to play tennis based on weather conditions}
+    \label{fig:decision_tree}       
+\end{figure}
 
+\subsection{How to build a tree}
+\begin{enumerate}
+    \item Given a set of labeled data
+    \item Choose the question with the maximum \textbf{information gain}
+    \item \textbf{Terminate} when all data in a node have the same label or when there are no more questions to ask
+\end{enumerate}
 
- 
+\subsection{Entropy}
+Information gain is measured by:
+\[
+log_2(\frac{1}{p_i}), \hspace{10pt} p_i = \text{Probability of event }i
+\]
 
+\noindent Entropy measures how predictable a dataset is and is defined as:
+\[
+Entropy = \sum -p_i log_2(p_i)
+\]
 
+\subsection{Entropy applied to decision trees}
+Ask about the attribute that maximizes the reduction of entropy
 
+% Continue at powerpoint lecture 2, slide 40
 
 
 
