@@ -70,12 +70,43 @@ Entropy = \sum -p_i log_2(p_i)
 \subsection{Entropy applied to decision trees}
 Ask about the attribute that maximizes the reduction of entropy
 
-% Continue at powerpoint lecture 2, slide 40
+\subsection{Information gain}
+Ask about attribute $A$ for a dataset $S$ that has entropy 
+$Ent(S)$ and get subsets $S_v$ according to the value of $A$
+\vspace{10pt}
 
+\noindent Information gain is defined as:
+\[
+Gain = \underbrace{Ent(S)}_{\text{Initial entropy}} - \sum_{v \in values(A)} \frac{|S_v|}{|S|} \hspace{-12pt}{\underbrace{Ent(S_v)}_{\text{Entropy after split}}}
+\]
 
+\subsection{Gini impurity} 
+Gini impurity measures the predictability of a dataset.
 
+\[
+Gini = \sum_{i=1}p_i(1-p_i) = 1 - \sum_{i=1}p_i^2
+\]
+Represents the expected error rate of a random node from the tree. The lower the Gini impurity, the better the split.
 
+\subsection{Overfitting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{overfitting.png}
+    \caption{Example of overfitting in decision trees: Accuracy on training data and test data diverges as the tree size increases}
+    \label{fig:overfitting}
+\end{figure}
+How to fix overfitting:
+\begin{itemize}
+    \item Choose a simpler model and accept some errors for the training examples
+    \item Seperate the dataset into training and validation sets
+\end{itemize}
 
+\subsection{Tree overfitting}
+To avoid overfittning trees we can:
+\begin{itemize}
+    \item Stop growing when data split is no longer statistically significant 
+    \item \textbf{Reduce error pruning:} Removes branches if it improves the accuracy on the validation set
+\end{itemize}
 
 
 \end{document}
