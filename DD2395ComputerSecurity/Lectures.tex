@@ -205,9 +205,31 @@ For an encryption scheme with a k-bit key the advantage for Eve should be $\math
 
 \noindent One-Time pad is \textbf{perfectly secure} however not IND-CPA secure since the key can only be used once.
 
-
-
-
+\section{Lecture 3}
+\subsection{Block cipher}
+\begin{itemize}
+    \item An algorith that encrypts a fixed-size block of bits
+    \item $E(K,M) = C$: Encryption
+    \begin{itemize}
+        \item Inputs: k-bit key $K$ and n-bit plaintext $M$
+        \item Output: n-bit ciphertext $C$
+        \item Written as $\{0,1\}^k \times \{0,1\}^n \rightarrow \{0,1\}^n$
+    \end{itemize}
+    \item $D(K,C) = M$: Decryption
+    \begin{itemize}
+        \item Inputs: k-bit key $K$ and n-bit ciphertext $C$
+        \item Output: n-bit plaintext $M$
+        \item Written as $\{0,1\}^k \times \{0,1\}^n \rightarrow \{0,1\}^n$
+    \end{itemize}
+    \item Properties of block ciphers
+    \begin{itemize}
+        \item $E_k$ is a permutation, $D_k$ is the inverse permutation
+        \item Encryption and decryption is fast
+        \item $E$ behaves like a random permutation
+        \item $E(K,M)$ is always bijective 
+    \end{itemize}
+\end{itemize}
+%% conitnue of page 0
 
 
 
