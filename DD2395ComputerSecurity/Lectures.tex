@@ -338,15 +338,172 @@ Collision is when two different inputs results in the same output
 \end{itemize}
 
 \subsection{Message Authentication Codes (MACs)}
+\begin{enumerate}
+    \item Alice wants to send $M$ to Bob, but doesn't want Mallory to tamper with it 
+    \item Alice sends $M$ and $T = MAC(K, M)$ to Bob
+    \item Bob recomputes $MAC(K, M)$ and checks if it equals $T$
+    \item If $MAC(K, M) = T$, Bobs'is confident that the message has not been tampered with
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{mac.png}    
+\end{figure}
 
+\subsection{MACs: Definition}
+MACs consists of two parts:
+\begin{enumerate}
+    \item $KeyGen() \rightarrow K$: Generates a key $K$
+    \item $MAC(K, M) \rightarrow T$: Generates a tag $T$ for $M$ using $K$
+\end{enumerate}
 
+The three properties of MACs are:
+\begin{enumerate}
+    \item \textbf{Correctness: }Determinism 
+    \item \textbf{Efficiency: }Computing MAC should be efficient 
+    \item \textbf{Security: }EU-CPA i.e existentially unforgeable under chosen plaintext attack
+\end{enumerate}
 
+\subsection{EU-CPA definition}
+\begin{itemize}
+    \item A secure MAC is \textbf{existentially unforgeable: }without the key, an attacker cannot create a valid tag on a message
+    \begin{itemize}
+        \item Mallory cannot find $M' \neq M$ such that $MAC(K, M') = MAC(K, M)$
+    \end{itemize}
+    \item MACs should be unforgeable under chose plaintext attack
+    \begin{itemize}
+        \item Even if Mallory can trick Alice into creating MACs for messages of Mallory's choosing, Mallory cannot create a valid MAX on a message that she hasn't seen before
+    \end{itemize}
+\end{itemize}
 
+\subsection{EU-CPA game}
+\begin{enumerate}
+    \item Mallory may send messsages to Alice and receive their tags
+    \item Eventually, Mallor creates a message-tag pair (M', T')
+    \begin{itemize}
+        \item M' cannot be the message that mallory requested earlier
+        \item If T' is a valid tag for M', then Mallory wins
+    \end{itemize}
+    \item A scheme is EU-CPA secure if Mallory cannot win in polynomial time with probability larger than $\epsilon$, where $\epsilon$ is negligible
+\end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{eucpa.png}
+\end{figure}
 
+\subsection{NMAC}
+\begin{itemize}
+    \item Using cryptographic hash functions to build secure MACs
+    \item $KeyGen()$: Outputs two random, n-bit $K_1$ and $K_2$, where $n$ is the length of the hash output
+    \item \textbf{NMAC}: $NMAC(K_1, K_2, M)$: outputs $H(K_2 || H(K_1 || M))$, where $||$ is concatenation
+    \item \textbf{Security}: NMAX is EU-CPA secure if the two keys are different 
+    \item By using two hashes with different keys, we prevent length extension attacks
+    \item Issues with NMAC:
+    \begin{itemize}
+        \item Two keys are needed
+        \item NMAC requires the keys to be the same length as the hash output
+    \end{itemize}
+\end{itemize}
 
+\subsection{HMAC}
+$HMAC(K, M)$:
+\begin{itemize}
+    \item Compute $K'$ as a version of $K$ that is the length of the hash output
+    \item If K is too short, pad $K$ with 0's to make it $n$ bits (Be careful with $K$ that are too short due to lack of randomness)
+    \item If K is too long, hash $K$ to make it $n$ bits
+    \item Output $H(K' \oplus opad || H(K' \oplus ipad || M))$, where $opad$ and $ipad$ are fixed constants
+\end{itemize}
 
+\noindent Use $K'$ to derive two different kyes
+\begin{itemize}
+    \item oad (outer pad): hard-coded constant byte 0x5c repeated until the length of the hash output
+    \item ipad (inner pad): hard-coded constant byte 0x36 repeated until the length of the hash output
+    \item As long as \textbf{opad} and \textbf{ipad} are different, you'll get two different keys
+\end{itemize}
 
+\noindent HMAC properties:
+\begin{itemize}
+    \item $HMAC(K,M) = H(K' \oplus opad || H(K' \oplus ipad || M))$
+    \item $HMAC$ is a hash function, so it has the properties of the underlying hash 
+    \item You can't verify a tag $T$ if you don't have $K$
+\end{itemize}
+
+The three cryptographic questions regarding HMAC are:
+\begin{enumerate}
+    \item Integrity
+    \begin{itemize}
+        \item Mallory cannot tamper with the message without being detected
+    \end{itemize}
+    \item Authenticity
+    \begin{itemize}
+        \item If two people share a secret key, they can be sure that the message came from the other person
+    \end{itemize}
+    \item Confidentiality
+    \begin{itemize}
+        \item MACs are deterministic $\implies$ no IND-CPA security 
+        \item MACs in general have no confidentiality guarantees, they can leak information about the message
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Authenticated Encryption (AE)}
+\begin{itemize}
+    \item \textbf{Authenticated encryption (AE):} A scheme that simultaneously guarantees confidentiality and integrity
+    \item The two main approaches to AE are:
+    \begin{enumerate}
+        \item Combine schemes that provide confidentiality with schemes that provide integrity
+        \item Use a scheme that is designed to provide both confidentiality and integrity (not in the course)
+    \end{enumerate}
+\end{itemize}
+
+\subsection{MAC-then-Encrypt or Encrypt-then-MAC?}
+Mac-then-encrypt
+\begin{itemize}
+    \item First compute $MAC(K_2, M)$ 
+    \item Then encrypt message and the MAC together: $Enc(K_1, M || MAX(K_2, M))$
+    \item Both are IND-CPA and EU-CPA secure 
+    \begin{itemize}
+        \item However, for MAC-then-encrypt you don't know if tampering has occured until after decrypting
+        \item Therefore, Encrypt-then-MAC is preferred
+    \end{itemize}
+\end{itemize}
+
+\subsection{Digital signatures}
+\begin{itemize}
+    \item Asymmetric cryptography means that we don't need to share a secret key
+    \item Digital signatures are the asymmetric way of providing integrity/authenticity
+    \item Assume that Alice and Bob can communicate public keys without Mallory changing them
+    \item The owner can sign message with their private key that anyone can verify with their public key
+\end{itemize}
+
+\subsection{Digital signatures: Definition}
+\begin{itemize}
+    \item Three parts
+    \begin{itemize}
+        \item $KeyGen() \rightarrow PK, SK$: Generates a public/private keypair, where PK is the verify key and SK is the sign key
+        \item $Sign(SK,M) \rightarrow sig$: Sign the message M using the signing key SK to produce the signature sig
+        \item $Verify(PK, M, sig) \rightarrow \{0,1\}$: Verify the signature sig on the message M using the verify key PK. Returns 1 if valid, 0 otherwise
+    \end{itemize}
+    \item Properties
+    \begin{enumerate}
+        \item \textbf{Correctness}: Verification should be successful for a signature generated over any message
+        \begin{itemize}
+            \item $Verify(PK, M, Sign(SK, M)) = 1, \hspace{10pt} \forall PK, SK \leftarrow KeyGen()$ and $M$
+            \item \textbf{Efficiency: }Signing and verifying should be fast
+            \item \textbf{Security: }EU-CPA, same as for MACs
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Digital signatures in practice}
+\begin{itemize}
+    \item If you want to sign a message $M$:
+    \begin{enumerate}
+        \item Hash $M$
+        \item Then $Sign(SK, H(M))$ to produce the signature signature
+    \end{enumerate}
+    \item We use hash to allow arbitrarily long messages
+    \item Digital signatures provide integrity and authenticity
+\end{itemize}
 
 
 
