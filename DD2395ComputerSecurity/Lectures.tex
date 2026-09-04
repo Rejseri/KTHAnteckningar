@@ -229,7 +229,127 @@ For an encryption scheme with a k-bit key the advantage for Eve should be $\math
         \item $E(K,M)$ is always bijective 
     \end{itemize}
 \end{itemize}
-%% conitnue of page 9
+
+\subsection{Block cipher: Brute force attacks}
+How hard is brute forcing a 128-bit key?
+\begin{enumerate}
+    \item We have to try $2^{128}$ keys
+    \item $2^10 \approx 10^3$
+    \begin{itemize}
+        \item $2^{128} = (2^{10})^{12.8} \approx (10^3)^{13} = 10^{39}$ 
+    \end{itemize}
+    \item Supposed that we could try $10^{18}$ keys per second
+    \item $10^{39} / 10^{18} = 10^{21}$ seconds $\approx$ 30 trillion years
+\end{enumerate}
+\newpage
+\subsection{AES algorithm}
+\begin{enumerate}
+    \item Take plain text and shuffle it using the key
+    \item Key sizes determines the rounds of shuffling
+    \begin{itemize}
+        \item 128-bit key: 10 rounds
+        \item 192-bit key: 12 rounds
+        \item 256-bit key: 14 rounds
+    \end{itemize}
+    \item Each round uses its own "round key" derived from the cipher key
+    \item Each round consists of four operations:
+    \begin{enumerate}
+        \item \textbf{SubBytes()}: Each byte is replaced with a corresponding byte from a fixed table
+        \item \textbf{ShiftRows()}: Each row of the state is shifted by a certain number of bytes
+        \item \textbf{MixColumns()}: Each column of the state is multiplied by a fixed polynomial
+        \item \textbf{AddRoundKey()}: Each byte of the state is XORed with a byte of the round key
+    \end{enumerate}
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{AES.png}
+\end{figure}
+
+\subsection{IND-CPA analysis of block ciphers}
+\begin{enumerate}
+    \item Eve sends a pair of plaintexts $M_0$ and $M_1$ to Alice
+    \item Eve receives the ciphertext $C$ of either $M_0$ or $M_1$ from Alice
+    \item Eve requests the encryption of M0 again and receives the ciphertext $C_0$ from Alice
+    \item \textbf{Strategy:} If $C = C_0$, then Eve guesses that Alice encrypted $M_0$, otherwise she guesses that Alice encrypted $M_1$
+    \item Eve is guaranteed to guess correctly. Therefore not IND-CPA secure
+\end{enumerate}
+
+\subsection{Pros and cons of block ciphers}
+\begin{itemize}
+    \item Block ciphers are not IND-CPA secure
+    \begin{itemize}
+        \item The algorithm is \textbf{deterministic} because the same input always produces the same output
+        \item A determinstic algorithm can never be IND-CPA secure because Eve can always guess correctly by sending the same plaintext twice
+    \end{itemize}
+    \item Block ciphers can only encrypt messages of a fixed size e.g. only 128 bits for AES
+    \item Block ciphers uses XORs and bitshiting which is very fast and efficient
+\end{itemize}
+
+\subsection{Crypotgraphic Hashes}
+Hash function $H(M)$ properies:
+\begin{itemize}
+    \item \textbf{Input:} Arbitrary length message $M$
+    \item \textbf{Output:} Fixed length hash $h$
+    \item \textbf{Deterministic:} The same input always produces the same output
+    \item \textbf{Efficient:} The hash can be computed quickly
+    \item \textbf{Security properties:} One way (preimage resistant), Collision resistance, random oracle
+    \begin{itemize}
+        \item \textbf{Random oracle:} There's no way to predict how changing the input will change the output
+    \end{itemize}
+\end{itemize}
+
+\subsection{Preimage resistance}
+\begin{itemize}
+    \item \textbf{Informal definition:} Given an input $y$, it's infeasible to find any input $x$, such that $H(x) = y$
+    \item \textbf{Formal definition: } $\forall A \in \mathcal{O}(n^k), \hspace{10pt} \Pr[A(H(x)) = y] < \epsilon, \hspace{10pt} \epsilon \approx 0$
+\end{itemize}
+
+\subsection{Collision resistance}
+Collision is when two different inputs results in the same output
+\begin{itemize}
+    \item \textbf{Definition} $\forall x \neq x', \hspace{10pt} H(x) \neq H(x')$
+    \item Hash functions ith no collisions are impossible due to the pigeonhole principle
+    \begin{itemize}
+        \item \textbf{Pigeonhole principle:} If you have more pigeons than pigeonholes, at least one pigeonhole must contain more than one pigeon
+        \item In this case there are more possible inputs than outputs, so at least two inputs must map to the same output
+    \end{itemize}
+\end{itemize}
+
+\subsection{Second preimage resistance}
+\begin{itemize}
+    \item \textbf{Definition:} Given an input $x$, it's infeasible to find another input $x' \neq x$, such that $H(x) = H(x')$
+    \item Strong collision resistance $\implies$ Second preimage resistance
+    \item \textbf{Collision resistance: } Attacker tries to find two inputs such that $H(x) = H(x')$
+    \item \textbf{Second preimage resistance: } Attacker is any given an input $x$ and tries to find another input $x' \neq x$ such that $H(x) = H(x')$
+    \item Broken second preimage resistance $\implies$ Broken collision resistance
+\end{itemize}
+
+\subsection{Length extension attacks}
+\begin{itemize}
+    \item \textbf{Length extension attack:} Given $H(x)$ and the length of $x$, but not x, an attacker can create $H(x || m)$ for any $m$ without knowing $x$
+    \item SHA-1 and SHA-2 are vulnerable to length extension attacks
+    \item SHA-3 is not vulnerable to length extension attacks
+\end{itemize}
+
+\subsection{Hashing and integrity}
+\begin{itemize}
+    \item Hashes themselves are unkeyed functions and don't provide integrity or authenticity
+    \item Hashes can be used to build keyed functions that provide integrity and authenticity
+\end{itemize}
+
+\subsection{Message Authentication Codes (MACs)}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
